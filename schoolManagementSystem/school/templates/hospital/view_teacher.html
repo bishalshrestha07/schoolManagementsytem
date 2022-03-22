@@ -1,0 +1,44 @@
+
+{% extends 'hospital/base.html' %}
+
+{% block content %}
+
+ 
+
+
+<div class="container" style="margin-top: 60px;">
+<h2 class="text-center text-success font-weight-bold">View Teacher</h2>
+<br>
+</div>
+<table id="example" class="table table-hover display" style="width:100%">
+	<thead>
+		<tr>
+			<th>Teacher ID</th>
+			<th>Teacher Name</th>
+			<th>Contact</th>
+			<th>Qualification</th>
+			<th>Specialization</th>
+			<th>Teaching Level</th>
+			<th>Edit</th>
+			<th>Remove</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in doc %}
+		<tr>
+			<td>{{i.id}}</td>
+			<td>{{i.name}}</td>
+			<td>{{i.contact}}</td>
+			<td>{{i.qualification}}</td>
+			<td>{{i.specialization}}</td>
+			<td>{{i.teachingLevel}}</td>
+			<td><a class ="btn btn-warning" href="{%url 'update_teacher' i.id%}" onclick="return confirm(Are you sure?)">Edit</a></td>
+			<td><a class ="btn btn-danger" href="{%url 'delete_teacher' i.id%}" onclick="return confirm(Are you sure?)">Delete</a></td>
+		
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+	<a href="javascript:history.back()">Back to Add Teacher</a>
+
+{%endblock %}
